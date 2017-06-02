@@ -29,8 +29,7 @@ public class VirtualPetShelter {
 			currentPet.water();
 		}
 	}
-	public void playWith(String p){
-		VirtualPet pet = mapOfPets.get(p);
+	public void playWith(VirtualPet pet){
 		pet.play();
 	}
 	public void tick() {
