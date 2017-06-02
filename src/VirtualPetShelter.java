@@ -6,32 +6,32 @@ public class VirtualPetShelter {
 
 	Map<String, VirtualPet> mapOfPets = new HashMap<String, VirtualPet>(); //instance variable
 
-	public Collection<VirtualPet> getPets(){
+	public Collection<VirtualPet> pets(){
 		return mapOfPets.values();
 	}
 	public VirtualPet getPet(String name){
 		return mapOfPets.get("name");
 	}
-	public void addPet(VirtualPet pet){
+	public void intake(VirtualPet pet){
 		mapOfPets.put(pet.name, pet);
 	}
 
-	public void removePet(String name){
+	public void adopt(String name){
 		mapOfPets.remove(name);
 	}
-	public void feedAll(){
+	public void feedPets(){
 		for(VirtualPet currentPet: mapOfPets.values()){
 			currentPet.feed();
 		}
 	}
-	public void waterAll(){
+	public void waterPets(){
 		for(VirtualPet currentPet: mapOfPets.values()){
 			currentPet.water();
 		}
 	}
-	public void playWith(String nameParam){
-		VirtualPet p = mapOfPets.get(nameParam);
-		p.play();
+	public void playWith(String p){
+		VirtualPet pet = mapOfPets.get(p);
+		pet.play();
 	}
 	public void tick() {
 		for(VirtualPet currentPet: mapOfPets.values()){
