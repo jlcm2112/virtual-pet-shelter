@@ -39,8 +39,7 @@ public class VirtualPetShelterApp {
 				displayPets(shelter);
 				writeLine("\nWhich pet would you like to play with?");
 				String play = input.next();
-				VirtualPet pet = shelter.getPet(play);
-				pet.play();
+				shelter.playWith(play);
 				writeLine("OK, you play with " + play + ". ");
 				break;
 			case "4": // adopt
