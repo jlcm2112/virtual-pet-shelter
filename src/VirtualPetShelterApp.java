@@ -37,7 +37,7 @@ public class VirtualPetShelterApp {
 				displayPets(shelter);
 				writeLine("\nWhich pet would you like to play with?");
 				String play = input.next();
-				shelter.playWith(play);
+				shelter.playWith(shelter.getPet(play));
 				writeLine("OK, you play with " + play + ". ");
 				break;
 			case "4": // adopt
@@ -70,19 +70,16 @@ public class VirtualPetShelterApp {
 
 		} while (!quit);
 		input.close();
-
 	}
 
 	public static void writeLine(String message) {
 		System.out.println(message);
-
 	}
 
 	private static void displayPets(VirtualPetShelter s) {
 		for (VirtualPet currentPet : s.pets()) {
 			System.out.println(currentPet);
 		}
-
 	}
 
 }

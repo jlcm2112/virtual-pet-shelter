@@ -10,7 +10,7 @@ public class VirtualPetShelter {
 		return mapOfPets.values();
 	}
 	public VirtualPet getPet(String name){
-		return mapOfPets.get("name");
+		return mapOfPets.get(name);
 	}
 	public void intake(VirtualPet pet){
 		mapOfPets.put(pet.name, pet);
@@ -29,9 +29,8 @@ public class VirtualPetShelter {
 			currentPet.water();
 		}
 	}
-	public void playWith(String p){
-		VirtualPet pet = mapOfPets.get(p);
-		pet.play();
+	public void playWith(VirtualPet p){
+		p.play();
 	}
 	public void tick() {
 		for(VirtualPet currentPet: mapOfPets.values()){
