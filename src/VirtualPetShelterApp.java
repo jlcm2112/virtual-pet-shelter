@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -81,9 +79,7 @@ public class VirtualPetShelterApp {
 	}
 
 	private static void displayPets(VirtualPetShelter s) {
-		Collection<VirtualPet> listOfPets = new ArrayList<>();
-		listOfPets = s.pets();
-		for (VirtualPet currentPet : listOfPets) {
+		for (VirtualPet currentPet : s.pets()) {
 			System.out.println(currentPet);
 		}
 
