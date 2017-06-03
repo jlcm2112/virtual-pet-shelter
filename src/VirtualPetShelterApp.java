@@ -11,16 +11,16 @@ public class VirtualPetShelterApp {
 		do {
 			writeLine("\nThank you for volunteering at the animal shelter!");
 			writeLine("\nThis is the status of your pets: ");
-			writeLine("\nName\t|Hunger\t|Thirst\t|Boredom");
-			writeLine("--------|-------|-------|-------");
+			writeLine("\nName\t|Hunger\t|Thirst\t|Boredom|Cage Messiness");
+			writeLine("--------|-------|-------|-------|-------");
 
 			for (VirtualPet currentPet : shelter.pets()) {
 				writeLine(currentPet.name + "\t|" + currentPet.hunger + "\t|" + currentPet.thirst + "\t|"
-						+ currentPet.boredom);
+						+ currentPet.boredom + "\t|" + currentPet.cageMessiness);
 			}
 			writeLine("\nWhat would you like to do next?");
 			writeLine(
-					"\n1.Feed the pets \n2.Water the pets \n3.Play with a pet \n4.Adopt a pet \n5.Admit a pet \n6.Do nothing \n7.Quit");
+					"\n1.Feed the pets \n2.Water the pets \n3.Play with a pet \n4.Adopt a pet \n5.Admit a pet \n6.Clean Cage \n7.Do nothing \n8.Quit");
 			String response = input.next();
 			input.nextLine();
 			switch (response) {
@@ -57,9 +57,17 @@ public class VirtualPetShelterApp {
 				shelter.intake(p);
 				writeLine("Thank you for admitting " + p.getName() + "! We will take good care of him/her.");
 				break;
-			case "6": // do nothing
+			case "6": // clean cage
+				writeLine("Ok, so you'd like to clean a cage. Please choose one:\n");
+				displayPets(shelter);
+				writeLine("\nWhich pet's cage would you like to clean?");
+				String cageName = input.next();
+				shelter.cleanCage(shelter.getPet(cageName));
+				writeLine("OK, you clean " + cageName + "'s cage. ");
 				break;
-			case "7": // quit
+			case "7": // do nothing
+				break;
+			case "8": // quit
 				writeLine("Nobody likes a quitter...");
 				System.exit(0);
 			default:

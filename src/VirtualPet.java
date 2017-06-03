@@ -6,6 +6,7 @@ public class VirtualPet {
 
 	  String description;  //instance variables
 	  String name;
+	  int cageMessiness;
 	  int hunger;
 	  int thirst;
 	  int temp;
@@ -15,14 +16,16 @@ public class VirtualPet {
 		name = nameParam;
 		description = descriptionParam;
 		temp = 72;
+		cageMessiness = 0;
 	}
-	public VirtualPet(String nameParam, String descriptionParam, int hungerParam, int thirstParam, int tempParam, int boredomParam) {
+	public VirtualPet(String nameParam, String descriptionParam, int hungerParam, int thirstParam, int tempParam, int boredomParam, int cageMessinessParam) {
 		name = nameParam;
 		description = descriptionParam;
 		hunger = hungerParam;
 		thirst = thirstParam;
 		temp = tempParam;
 		boredom = boredomParam;
+		cageMessiness = cageMessinessParam;
 	}
 	
 	//increments variables semi-randomly to simulate passage of time 
@@ -31,6 +34,7 @@ public class VirtualPet {
 		thirst += (10 + generateRandom());
 		temp -= (1 + generateRandom());
 		boredom += (1 + generateRandom());
+		cageMessiness += (1 + generateRandom());
 	}
 	
 	public void reset() {
@@ -38,6 +42,7 @@ public class VirtualPet {
 		thirst = 0;
 		temp = 72;
 		boredom = 0;
+		cageMessiness = 0;
 	}
 
 	public int generateRandom() {
@@ -68,7 +73,8 @@ public class VirtualPet {
 
 	public void feed() {
 		hunger -= 60;
-		thirst -= 20;
+		thirst += 10;
+		cageMessiness += 10;
 	}
 	
 	public void giveARabbit() {
@@ -142,6 +148,10 @@ public class VirtualPet {
 	}
 	public boolean isBored() {
 		return boredom>=50;
+	}
+	//cage
+	public void cleanCage() {
+		cageMessiness = 0;
 	}
 	
 	@Override

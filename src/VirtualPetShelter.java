@@ -15,7 +15,6 @@ public class VirtualPetShelter {
 	public void intake(VirtualPet pet){
 		mapOfPets.put(pet.name, pet);
 	}
-
 	public void adopt(String name){
 		mapOfPets.remove(name);
 	}
@@ -31,6 +30,9 @@ public class VirtualPetShelter {
 	}
 	public void playWith(VirtualPet p){
 		p.play();
+	}
+	public void cleanCage(VirtualPet p){
+		p.cleanCage();
 	}
 	public void tick() {
 		for(VirtualPet currentPet: mapOfPets.values()){
