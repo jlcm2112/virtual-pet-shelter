@@ -18,6 +18,7 @@ public class VirtualPet {
 		temp = 72;
 		cageMessiness = 0;
 	}
+	
 	public VirtualPet(String nameParam, String descriptionParam, int hungerParam, int thirstParam, int tempParam, int boredomParam, int cageMessinessParam) {
 		name = nameParam;
 		description = descriptionParam;
@@ -72,9 +73,9 @@ public class VirtualPet {
 	}
 
 	public void feed() {
-		hunger -= 60;
+		hunger = 0;
 		thirst += 10;
-		cageMessiness += 10;
+		cageMessiness += 20;
 	}
 	
 	public void giveARabbit() {
@@ -105,7 +106,8 @@ public class VirtualPet {
 	}
 
 	public void water() {
-		thirst -= 30;
+		thirst = 0;
+		cageMessiness += 10;
 	
 	}
 
@@ -144,7 +146,7 @@ public class VirtualPet {
 		hunger += 5;
 		thirst += 5;
 		temp += 4;
-		boredom -= 50;
+		boredom =0;
 	}
 	public boolean isBored() {
 		return boredom>=50;
